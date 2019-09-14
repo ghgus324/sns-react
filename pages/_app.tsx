@@ -15,15 +15,6 @@ class MyApp extends App<IProps> {
 
     isBackHistory:boolean = false;
     cachedPageHeight:number[] =[];
-    static async getInitialProps({Component,ctx}:any){
-      //  const isServer = !!ctx.req;
-        //login,ssr용 초기치, url처리
-    return {
-        pageProps:{
-            ...(Component.getInitialProps ? await Component.getInitialProps(ctx):{}),
-        },
-    };
-    }
 
     //스크롤 위치
     routeChangeStart = () =>{

@@ -1,3 +1,4 @@
+import { LoginAction } from "./login/actions";
+
 export type IUIAction = 
-//| stylistAction
-null;
+|LoginAction;

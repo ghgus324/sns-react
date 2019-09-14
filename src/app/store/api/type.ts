@@ -1,4 +1,4 @@
-import { IErrorResult} from "../../model/pagedata";
+import { IErrorResult} from "../../models/pagedata";
 
 export interface IAPICommonState<T>{
     isloading: boolean;

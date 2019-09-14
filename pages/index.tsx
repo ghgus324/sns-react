@@ -19,6 +19,7 @@ export class Index extends React.Component<IndexProps> {
       }
       return {url,store};
   }
+  
   render(){
     return (
       <React.Fragment>
