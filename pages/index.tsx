@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IStore } from "src/app/store/root-state";
+import { IStore } from "../src/app/store/root-state";
 import Link from "next/link";
 
 export interface IndexProps {}
