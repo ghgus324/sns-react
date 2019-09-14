@@ -46,3 +46,5 @@ This example shows a configuration and several examples for a running Jest tests
 ## 디자인 (https://material-ui.com/getting-started/templates/)
  1. npm install @material-ui/core @material-ui/icons  <=@가 붙은 건 최신버전 없으면 옛날 버전
  2. font및 디자인 => npm install style-loader css-loader
+
+ ## tsconfig 설정 참조 (https://vomvoru.github.io/blog/tsconfig-compiler-options-kr/)

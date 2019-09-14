@@ -2,9 +2,11 @@
   "name": "sns-react",
   "version": "1.0.0",
   "scripts": {
+    "build": "run-p build:*",
+    "build:server":"tsc --project tsconfig.server.json",
+    "build:next":"next build",
     "test":"jest --coverage --detectOpenHandles --forceExit",
     "dev": "next",
-    "build": "next build",
     "start": "next start",
     "format": "prettier \"{src,pages}/**/*.{js,ts,jsx,tsx,scss}\" --write",
     "lint": "eslint . --ext .tsx,.ts ",

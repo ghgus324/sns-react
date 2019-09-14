@@ -15,6 +15,13 @@ class MyApp extends App<IProps> {
   isBackHistory = false;
   cachedPageHeight: number[] = [];
 
+  static async getInitialProps({ Component, ctx }: any) {
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+    return { pageProps };
+  }
   //스크롤 위치
   routeChangeStart = () => {
     this.cachedPageHeight.push(document.documentElement.offsetHeight);
