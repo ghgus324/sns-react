@@ -1,4 +1,5 @@
+import { ILoginState } from "./login/state";
+
 export default interface IUiState {
-    [x:string]:any;
-    //stylist:IstylistState;
+  login: ILoginState;
 }

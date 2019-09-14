@@ -1,3 +1,3 @@
-export type IAPiAction = 
-//| stylistAction
-null;
+export type IAPiAction =
+  //| stylistAction
+  null;

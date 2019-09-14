@@ -1,3 +1,3 @@
-export type IUIAction = 
-//| stylistAction
-null;
+import { LoginAction } from "./login/actions";
+
+export type IUIAction = LoginAction;

@@ -1,4 +1,4 @@
 export default interface IAPiState {
-    [x:string]:any;
-    //stylist:IstylistState;
+  [x: string]: any;
+  //stylist:IstylistState;
 }

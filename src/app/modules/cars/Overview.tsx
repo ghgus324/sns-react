@@ -1,34 +1,31 @@
-import * as React from 'react'
+import * as React from "react";
 
-import * as T from './types'
+import * as T from "./types";
 
 export interface CarsOverviewProps {
-  cars?: T.CarList
+  cars?: T.CarList;
 }
 
 export interface CarsOverviewState {
-  selectedCar: T.Car
+  selectedCar: T.Car;
 }
 
-export default class CarsOverview extends React.Component<
-  CarsOverviewProps,
-  CarsOverviewState
-> {
+export default class CarsOverview extends React.Component<CarsOverviewProps, CarsOverviewState> {
   constructor(props: CarsOverviewProps) {
-    super(props)
+    super(props);
 
     this.state = {
       selectedCar: null,
-    }
+    };
   }
 
   handleSelectCar = (car: T.Car): void => {
-    this.setState({ selectedCar: car })
-  }
+    this.setState({ selectedCar: car });
+  };
 
   renderCarsList = (cars?: T.CarList): JSX.Element => {
     if (!cars || cars.length === 0) {
-      return <p>No cars</p>
+      return <p>No cars</p>;
     }
 
     return (
@@ -41,12 +38,12 @@ export default class CarsOverview extends React.Component<
           )
         )}
       </ul>
-    )
-  }
+    );
+  };
 
   renderCarInfo = (car: T.Car): JSX.Element => {
     if (!car) {
-      return null
+      return null;
     }
 
     return (
@@ -54,8 +51,8 @@ export default class CarsOverview extends React.Component<
         <h2>{`${car.make} ${car.model}`}</h2>
         <section>{car.engine}</section>
       </div>
-    )
-  }
+    );
+  };
 
   render() {
     return (
@@ -66,6 +63,6 @@ export default class CarsOverview extends React.Component<
 
         {this.renderCarInfo(this.state.selectedCar)}
       </div>
-    )
+    );
   }
 }

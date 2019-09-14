@@ -1,18 +1,18 @@
-import React, { ChangeEvent } from 'react'
-import Router from 'next/router'
+import React, { ChangeEvent } from "react";
+import Router from "next/router";
 
-import * as T from './types'
+import * as T from "./types";
 
 export interface LoginProps {}
 
 export interface LoginState {
-  credentials: T.LoginCredentials
-  isLoginLoading: boolean
+  credentials: T.LoginCredentials;
+  isLoginLoading: boolean;
 }
 
 export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
-    super(props)
+    super(props);
 
     this.state = {
       isLoginLoading: false,
@@ -20,28 +20,28 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         email: null,
         password: null,
       },
-    }
+    };
   }
 
   handleCredentialsChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let { credentials } = this.state
-    credentials[e.target.name] = e.target.value
+    const { credentials } = this.state;
+    credentials[e.target.name] = e.target.value;
 
-    this.setState({ credentials })
-  }
+    this.setState({ credentials });
+  };
 
   handleLoginSubmit = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
-    this.setState({ isLoginLoading: true })
+    e.preventDefault();
+    this.setState({ isLoginLoading: true });
 
     setTimeout(() => {
-      this.setState({ isLoginLoading: false })
-      Router.replace('/cars')
-    }, 500)
-  }
+      this.setState({ isLoginLoading: false });
+      Router.replace("/cars");
+    }, 500);
+  };
 
   render() {
-    const { credentials } = this.state
+    const { credentials } = this.state;
 
     return (
       <div>
@@ -54,18 +54,13 @@ export default class Login extends React.Component<LoginProps, LoginState> {
             value={credentials.email}
             onChange={this.handleCredentialsChange}
           />
-          <input
-            name="password"
-            type="password"
-            value={credentials.password}
-            onChange={this.handleCredentialsChange}
-          />
+          <input name="password" type="password" value={credentials.password} onChange={this.handleCredentialsChange} />
 
           <button id="loginSubmit" onClick={this.handleLoginSubmit}>
-            {this.state.isLoginLoading ? 'Logging in...' : 'Log in'}
+            {this.state.isLoginLoading ? "Logging in..." : "Log in"}
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
