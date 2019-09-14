@@ -15,7 +15,7 @@ export default class CarsOverview extends React.Component<CarsOverviewProps, Car
     super(props);
 
     this.state = {
-      selectedCar: null,
+      selectedCar: {},
     };
   }
 
@@ -42,10 +42,6 @@ export default class CarsOverview extends React.Component<CarsOverviewProps, Car
   };
 
   renderCarInfo = (car: T.Car): JSX.Element => {
-    if (!car) {
-      return null;
-    }
-
     return (
       <div className="CarInfo">
         <h2>{`${car.make} ${car.model}`}</h2>

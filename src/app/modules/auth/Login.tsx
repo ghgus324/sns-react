@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from "react";
-import Router from "next/router";
+import React from "react";
+//import Router from "next/router";
 
 import * as T from "./types";
 
@@ -17,28 +17,28 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     this.state = {
       isLoginLoading: false,
       credentials: {
-        email: null,
-        password: null,
+        email: "",
+        password: "",
       },
     };
   }
 
-  handleCredentialsChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { credentials } = this.state;
-    credentials[e.target.name] = e.target.value;
+  // handleCredentialsChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const { credentials } = this.state;
+  //   credentials[e.target.name] = e.target.value;
 
-    this.setState({ credentials });
-  };
+  //   this.setState({ credentials });
+  // };
 
-  handleLoginSubmit = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    this.setState({ isLoginLoading: true });
+  // handleLoginSubmit = (e: React.MouseEvent<HTMLElement>) => {
+  //   e.preventDefault();
+  //   this.setState({ isLoginLoading: true });
 
-    setTimeout(() => {
-      this.setState({ isLoginLoading: false });
-      Router.replace("/cars");
-    }, 500);
-  };
+  //   setTimeout(() => {
+  //     this.setState({ isLoginLoading: false });
+  //     Router.replace("/cars");
+  //   }, 500);
+  // };
 
   render() {
     const { credentials } = this.state;
@@ -52,11 +52,19 @@ export default class Login extends React.Component<LoginProps, LoginState> {
             name="email"
             type="text"
             value={credentials.email}
-            onChange={this.handleCredentialsChange}
+            //   onChange={this.handleCredentialsChange}
           />
-          <input name="password" type="password" value={credentials.password} onChange={this.handleCredentialsChange} />
+          <input
+            name="password"
+            type="password"
+            value={credentials.password}
+            //onChange={this.handleCredentialsChange}
+          />
 
-          <button id="loginSubmit" onClick={this.handleLoginSubmit}>
+          <button
+            id="loginSubmit"
+            // onClick={this.handleLoginSubmit}
+          >
             {this.state.isLoginLoading ? "Logging in..." : "Log in"}
           </button>
         </form>
