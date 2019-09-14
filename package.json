@@ -1,11 +1,25 @@
 {
-  "name": "with-jest-typescript",
+  "name": "sns-react",
   "version": "1.0.0",
   "scripts": {
     "test": "jest",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier \"{src,pages}/**/*.{js,ts,jsx,tsx,scss}\" --write",
+    "lint": "eslint . --ext .tsx,.ts ",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@material-ui/core": "^4.4.2",
@@ -56,14 +70,14 @@
     "@types/react-test-renderer": "^16.8.1",
     "@types/redux-mock-store": "^1.0.1",
     "@types/styled-jsx": "^2.2.8",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
     "@zeit/next-typescript": "^1.1.1",
     "autoprefixer": "^9.6.1",
     "axios-mock-adapter": "^1.17.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
+    "babel-eslint": "^10.0.2",
     "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -71,18 +85,20 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
     "enzyme-to-json": "^3.4.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-config-react-app": "^4.0.1",
+    "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react-app": "^5.0.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-flowtype": "^4.2.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-react-hooks": "^1.6.0",
+    "husky": "^3.0.5",
     "jest": "^24.5.0",
     "jest-css-modules": "^2.1.0",
+    "lint-staged": "^9.2.5",
     "node-sass": "^4.12.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "prettier": "^1.18.2",

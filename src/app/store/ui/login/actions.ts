@@ -9,8 +9,7 @@ export const setLoginInfo = actionCreator<ILoginInfo>("SET_LOGIN_INFO");
 //export const setLoginInfo = actionCreator<ILoginInfo>("SET_LOGIN_INFO");
 //export const xxx = actionCreator<yyy>("SET_LOGIN_zzz");
 
-export type LoginAction = 
-|ReturnType<typeof setLoginInfo>;
+export type LoginAction = ReturnType<typeof setLoginInfo>;
 
 //2개이상 경우
 //|ReturnType<typeof setLoginInfo>
