@@ -1,7 +1,8 @@
-import axios, { AxiosRequestConfig, AxiosInstance } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance } from "axios";
 import http from "https";
 import getConfig from "next/config";
 import { Request } from "express";
+import { ILoginInfo } from "../models/loginInfo";
 
 const { serverruntimeConfig } = getConfig();
 
@@ -35,8 +36,8 @@ export const initialize = (req?: Request) => {
   }
 };
 
-// export const getHairstyleInfo = async(hairistyleId:number):Promise<AxiosResponse<IHairstyleInfoResult>>=>{
-//     const path="/api/hairstyle";
-//     const response = await client.get<IHairstyleInfoResult>(path,{params:{hairstyle_id:hairstyleId},});
-//     return response;
-// };
+export const getLoginInfo = async (id: string, pw: string): Promise<AxiosResponse<ILoginInfo>> => {
+  const path = "/api/login/info";
+  const response = await client.get<ILoginInfo>(path, { params: { id: id, pw: pw } });
+  return response;
+};
