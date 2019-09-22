@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Login from "./Login";
+import LoginForm from "./LoginForm";
 import IRootState from "../store/root-state";
 //import { ILoginInfo } from "../models/loginInfo";
 export const mapStateToProps = ({ ui }: IRootState) => ({
@@ -15,4 +15,4 @@ export const mapStateToProps = ({ ui }: IRootState) => ({
 export default connect(
   mapStateToProps,
   {} //mapDispatchToProps있으면 {}대신 mapDispatchToProps로 처리
-)(Login);
+)(LoginForm);

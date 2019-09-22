@@ -4,7 +4,7 @@ export interface LoginProps {
   isLogin: boolean;
 }
 
-export class Login extends React.Component<LoginProps> {
+export class LoginForm extends React.Component<LoginProps> {
   render() {
     return (
       <div>
@@ -14,4 +14,4 @@ export class Login extends React.Component<LoginProps> {
   }
 }
 
-export default Login;
+export default LoginForm;
