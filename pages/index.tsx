@@ -21,11 +21,15 @@ export class Index extends React.Component<IndexProps> {
       <React.Fragment>
         <div>index page</div>
         <Link href="/cars">
-          <a>test(cars)</a>
+          <a>jestSample(cars)</a>
         </Link>
         <br />
         <Link href="/login">
-          <a>test(login)</a>
+          <a>login(test)</a>
+        </Link>
+        <br />
+        <Link href="/join">
+          <a>join(formik Sample)</a>
         </Link>
       </React.Fragment>
     );
