@@ -35,7 +35,6 @@ const JoinForm: React.SFC<P> = props => {
           placeholder={"password"}
           required
         />
-        {errors.password && <div id="PasswordError">{errors.password}</div>}
         <br />
         <input
           type={"password"}
@@ -47,10 +46,16 @@ const JoinForm: React.SFC<P> = props => {
           placeholder={"confirmPassword"}
           required
         />
-        {errors.confirmPassword && <div id="ConfPasswordError">{errors.confirmPassword}</div>}
+        {errors.password && <div id="PasswordError">{errors.password}</div>}
         <br />
-        <input type={"text"} name={"mail"} value={values.mail} onChange={handleChange} placeholder={"mail"} required />
-        {errors.mail && <div id="MailError">{errors.mail}</div>}
+        <input
+          type={"text"}
+          name={"email"}
+          value={values.email}
+          onChange={handleChange}
+          placeholder={"email"}
+          required
+        />
         <br />
         <input
           type={"text"}
@@ -60,7 +65,7 @@ const JoinForm: React.SFC<P> = props => {
           placeholder={"confirmEmail"}
           required
         />
-        {errors.confirmEmail && <div id="ConfEmailError">{errors.confirmEmail}</div>}
+        {errors.email && <div id="EmailError">{errors.email}</div>}
         <br />
         <input
           type={"text"}
@@ -77,7 +82,9 @@ const JoinForm: React.SFC<P> = props => {
         <input type={"text"} name={"gender"} value={values.gender} onChange={handleChange} placeholder={"gender"} />
         {errors.gender && <div id="GenderError">{errors.gender}</div>}
         <br />
-        <button disabled={isSubmitting}>join</button>
+        <button type={"submit"} disabled={isSubmitting}>
+          join
+        </button>
       </Form>
     </React.Fragment>
   );
