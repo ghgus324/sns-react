@@ -2,6 +2,9 @@ import * as React from "react";
 import { FormikProps, Form } from "formik";
 import { FormValues, mapStateToProps } from "./Join.container";
 
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
 type P = FormikProps<FormValues> & ReturnType<typeof mapStateToProps>;
 
 // type P = FormikProps<FormValues> & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -13,78 +16,97 @@ const JoinForm: React.SFC<P> = props => {
     <React.Fragment>
       <h2> Join Page</h2>
       <Form>
-        <input
-          type={"text"}
-          name={"id"}
+        <TextField
+          label="ID"
+          type="text"
+          name="id"
           value={values.id}
           onChange={handleChange}
-          // minLength={6}
-          maxLength={12}
-          placeholder={"id"}
+          inputProps={{
+            maxLength: 12,
+          }}
+          placeholder="id"
           required
         />
         {errors.id && <div id="IdError">{errors.id}</div>}
         <br />
-        <input
-          type={"password"}
-          name={"password"}
+        <TextField
+          label="PASSWORD"
+          type="password"
+          name="password"
           value={values.password}
           onChange={handleChange}
-          //minLength={8}
-          maxLength={12}
-          placeholder={"password"}
+          inputProps={{
+            maxLength: 12,
+          }}
+          placeholder="password"
           required
         />
         <br />
-        <input
-          type={"password"}
-          name={"confirmPassword"}
+        <TextField
+          label="PASSWORD AGAIN"
+          type="password"
+          name="confirmPassword"
           value={values.confirmPassword}
           onChange={handleChange}
-          minLength={8}
-          maxLength={12}
-          placeholder={"confirmPassword"}
+          inputProps={{
+            minLength: 8,
+            maxLength: 12,
+          }}
+          placeholder="confirmPassword"
           required
         />
         {errors.password && <div id="PasswordError">{errors.password}</div>}
         <br />
-        <input
-          type={"text"}
-          name={"email"}
+        <TextField
+          label="MAIL"
+          type="text"
+          name="email"
           value={values.email}
           onChange={handleChange}
-          placeholder={"email"}
+          placeholder="email"
           required
         />
         <br />
-        <input
-          type={"text"}
-          name={"confirmEmail"}
+        <TextField
+          label="MAIL AGAIN"
+          type="text"
+          name="confirmEmail"
           value={values.confirmEmail}
           onChange={handleChange}
-          placeholder={"confirmEmail"}
+          placeholder="confirmEmail"
           required
         />
         {errors.email && <div id="EmailError">{errors.email}</div>}
         <br />
-        <input
-          type={"text"}
-          name={"nickname"}
+        <TextField
+          label="NICKNAME"
+          type="text"
+          name="nickname"
           value={values.nickname}
           onChange={handleChange}
-          minLength={1}
-          maxLength={12}
-          placeholder={"nickname"}
+          inputProps={{
+            minLength: 1,
+            maxLength: 12,
+          }}
+          placeholder="nickname"
           required
         />
         {errors.nickname && <div id="NicknameError">{errors.nickname}</div>}
         <br />
-        <input type={"text"} name={"gender"} value={values.gender} onChange={handleChange} placeholder={"gender"} />
+        <TextField
+          label="GENDER"
+          type="text"
+          name="gender"
+          value={values.gender}
+          onChange={handleChange}
+          placeholder="gender"
+        />
         {errors.gender && <div id="GenderError">{errors.gender}</div>}
         <br />
-        <button type={"submit"} disabled={isSubmitting}>
+        <Button variant="contained" color="primary" type="submit" disabled={isSubmitting}>
           join
-        </button>
+        </Button>
       </Form>
     </React.Fragment>
   );
