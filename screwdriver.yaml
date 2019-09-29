@@ -1,0 +1,33 @@
+jobs: 
+  main:
+    requires: [ ~pr, ~commit ]
+    template: nodejs/test@stable
+
+    ###dev deploy
+    deploy-dev: 
+      requires: [ main ]
+      template: paas/pcf-bluegreen-strage-nodejs@stable
+      environment: &env_dev
+        CF_CLUSTER: dev03-ssk-vs.sskcfd.yahoo.co.jp
+        CF_SPACE: sandbox
+        CF_LOGIN_USER: CF_USER_DEV03
+        CF_LOGIN_PASS: CF_PASS_DEV03
+        CF_MANIFEST_FILE: manifest-dev.yml
+        NODE_CONFIG_ENV: development
+      switch-route-dev:
+        requires: [ test-stage-dev ]
+        template: paas/pcf-bluegreen-switch-route@stable
+        environment: *env_dev
+      cleanup-dev: 
+        requires: [ switch-route-dev ]
+        etmplate: paas/pcf-bluegreen-cleanup@stable
+        setting: 
+          slack: 
+            statuses:
+              - FAILURE
+              - SUCCESS
+        enviroment: *env_dev
+      revert-dev: 
+        requires: []
+        template: paas/pcf-bluegreen-revert@stable
+        enviroment: *env_dev   
