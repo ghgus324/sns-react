@@ -42,7 +42,6 @@ const JoinForm: React.SFC<P> = props => {
           placeholder="password"
           required
         />
-        {errors.password && <div id="PasswordError">{errors.password}</div>}
         <br />
         <TextField
           label="PASSWORD AGAIN"
@@ -57,18 +56,17 @@ const JoinForm: React.SFC<P> = props => {
           placeholder="confirmPassword"
           required
         />
-        {errors.confirmPassword && <div id="ConfPasswordError">{errors.confirmPassword}</div>}
+        {errors.password && <div id="PasswordError">{errors.password}</div>}
         <br />
         <TextField
           label="MAIL"
           type="text"
-          name="mail"
-          value={values.mail}
+          name="email"
+          value={values.email}
           onChange={handleChange}
-          placeholder="mail"
+          placeholder="email"
           required
         />
-        {errors.mail && <div id="MailError">{errors.mail}</div>}
         <br />
         <TextField
           label="MAIL AGAIN"
@@ -79,7 +77,7 @@ const JoinForm: React.SFC<P> = props => {
           placeholder="confirmEmail"
           required
         />
-        {errors.confirmEmail && <div id="ConfEmailError">{errors.confirmEmail}</div>}
+        {errors.email && <div id="EmailError">{errors.email}</div>}
         <br />
         <TextField
           label="NICKNAME"
@@ -106,7 +104,7 @@ const JoinForm: React.SFC<P> = props => {
         />
         {errors.gender && <div id="GenderError">{errors.gender}</div>}
         <br />
-        <Button variant="contained" color="primary" disabled={isSubmitting}>
+        <Button variant="contained" color="primary" type="submit" disabled={isSubmitting}>
           join
         </Button>
       </Form>

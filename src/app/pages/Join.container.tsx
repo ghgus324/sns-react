@@ -13,7 +13,7 @@ export interface FormValues {
   id: string;
   password: string;
   confirmPassword: string;
-  mail: string;
+  email: string;
   confirmEmail: string;
   nickname: string;
   gender: string;
@@ -29,7 +29,7 @@ const Form = withFormik<FormProps, FormValues>({
       id: "",
       password: "",
       confirmPassword: "",
-      mail: "",
+      email: "",
       confirmEmail: "",
       nickname: "",
       gender: "",
@@ -41,7 +41,7 @@ const Form = withFormik<FormProps, FormValues>({
   validateOnChange: false,
 
   handleSubmit: (values, { setSubmitting }) => {
-    JSON.stringify(values);
+    alert(JSON.stringify(values));
     setSubmitting(false);
   },
 })(JoinForm);
